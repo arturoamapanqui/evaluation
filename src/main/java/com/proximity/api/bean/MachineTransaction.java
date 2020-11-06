@@ -1,6 +1,5 @@
 package com.proximity.api.bean;
 
-import java.util.List;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import io.swagger.annotations.ApiModel;
@@ -13,37 +12,31 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @JsonInclude(Include.NON_NULL)
-@ApiModel(value = "Machine", description = "Entity for machines")
-public class Machine {
+@ApiModel(value = "Machine Transactions", description = "Entity for reports - Machine transactions")
+public class MachineTransaction {
 	
 	@ApiModelProperty
-	private Integer id;
+	private Integer machineId;
 	
 	@ApiModelProperty
-	private Integer capacity;
+	private String machineType;
 	
 	@ApiModelProperty
-	private Double balance;
+	private String paymentMethod;
 	
 	@ApiModelProperty
-	private Boolean isConnected;
+	private Integer transactionId; 
 	
 	@ApiModelProperty
-	private Boolean isReadyToPickup;
+	private Double change;
 	
 	@ApiModelProperty
-	private Boolean isBlocked;
+	private String transactionDate;
 	
 	@ApiModelProperty
-	private Integer pin;
+	private Integer productId;
 	
 	@ApiModelProperty
-	private MachineType type;
-	
-	@ApiModelProperty
-	private List<MachineProduct> products;
-	
-	@ApiModelProperty
-	private List<Transaction> transactions;
+	private String productName;
 	
 }

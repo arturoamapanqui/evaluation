@@ -40,7 +40,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"capacity\": 20,\r\n    \"balance\": 10.0,\r\n    \"type\": {\r\n        \"id\": 1\r\n    }\r\n}",
+					"raw": "{\r\n    \"capacity\": 20,\r\n    \"balance\": 10.0,\r\n    \"type\": {\r\n        \"id\": 1\r\n    },\r\n    \"pin\": 1234\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -182,7 +182,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"amount\": 50.0,\r\n    \"amountInserted\": 48.70,\r\n    \"product\": {\r\n        \"id\": 5\r\n    },\r\n    \"machine\": {\r\n        \"id\": 2\r\n    },\r\n    \"paymentMethod\": {\r\n        \"id\": 2\r\n    }\r\n}",
+					"raw": "{\r\n    \"amount\": 50.0,\r\n    \"amountInserted\": 48.70,\r\n    \"product\": {\r\n        \"id\": 1\r\n    },\r\n    \"machine\": {\r\n        \"id\": 1\r\n    },\r\n    \"paymentMethod\": {\r\n        \"id\": 1\r\n    }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -198,6 +198,35 @@
 					"port": "8080",
 					"path": [
 						"transaction"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Machine - Drop  balance",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"pin\": 1234\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/machine/drop-balance",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"machine",
+						"drop-balance"
 					]
 				}
 			},

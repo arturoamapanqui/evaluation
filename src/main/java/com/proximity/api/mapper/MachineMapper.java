@@ -16,6 +16,8 @@ public class MachineMapper implements RowMapper<Machine>{
 		machine.setBalance(rs.getDouble("balance"));
 		machine.setIsConnected(rs.getBoolean("is_connected"));
 		machine.setIsReadyToPickup(rs.getBoolean("ready_pickup"));
+		machine.setIsBlocked(rs.getBoolean("is_blocked"));
+		machine.setPin(rs.getInt("pin"));
 		
 		MachineType type = new MachineType();
 		type.setId(rs.getInt("typeId"));

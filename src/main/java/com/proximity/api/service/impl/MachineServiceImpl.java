@@ -19,7 +19,7 @@ public class MachineServiceImpl implements MachineService{
 	}
 
 	@Override
-	public Machine getMachineById(Long machineId) {
+	public Machine getMachineById(Integer machineId) {
 		return machineDao.getMachineById(machineId);
 	}
 
@@ -34,8 +34,20 @@ public class MachineServiceImpl implements MachineService{
 	}
 
 	@Override
-	public Machine delete(Long machineId) {
+	public Machine delete(Integer machineId) {
 		return machineDao.delete(machineId);
+	}
+
+	@Override
+	public boolean dropBalance(Machine machine) {
+		Machine machineQueried = machineDao.getMachineById(machine.getId());
+		boolean isCorrect = machineQueried != null ? machine.getPin().equals(machineQueried.getPin()) && !machineQueried.getIsBlocked() : false;
+		
+		if(!isCorrect) {
+			machineDao.blockMachine(machine.getId());
+		}
+		
+		return isCorrect;
 	}
 
 	

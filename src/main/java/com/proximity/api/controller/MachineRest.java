@@ -26,7 +26,7 @@ public class MachineRest {
 	
 	@GetMapping("/{machineId}")
 	@ApiOperation(value = "Get machine by id")
-	public Machine getMachineById(@PathVariable("machineId") Long machineId) {
+	public Machine getMachineById(@PathVariable("machineId") Integer machineId) {
 		return machineService.getMachineById(machineId);
 	}
 	
@@ -50,8 +50,13 @@ public class MachineRest {
 	
 	@DeleteMapping("/{machineId}")
 	@ApiOperation(value = "Delete machine")
-	public Machine delete(@PathVariable("machineId") Long machineId) {
+	public Machine delete(@PathVariable("machineId") Integer machineId) {
 		return machineService.delete(machineId);
+	}
+	
+	@PostMapping("/drop-balance")
+	public boolean dropBalance(@RequestBody Machine machine) {
+		return machineService.dropBalance(machine);
 	}
 	
 }

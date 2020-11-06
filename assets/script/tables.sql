@@ -39,7 +39,9 @@ create table proximity_machine(
 	capacity numeric,
 	machine_type integer,
 	balance numeric,
-	is_connected boolean,
+	is_connected boolean default true,
+	is_blocked boolean default false,
+	pin integer,
 	constraint fk_pm_machine_type foreign key (machine_type) references proximity_machine_type(id)
 );
 
@@ -61,4 +63,4 @@ create table proximity_transaction(
 	constraint fk_pt_payment_method foreign key (payment_method) references proximity_payment_method(id),
 	constraint fk_machine_transaction foreign key (machine_id) references proximity_machine(id),
 	constraint fk_product_transaction foreign key (product_id) references proximity_product(id)
-);
+); 

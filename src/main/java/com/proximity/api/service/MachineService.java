@@ -7,12 +7,14 @@ public interface MachineService {
 	
 	List<Machine> getAllMachines();
 
-	Machine getMachineById(Long machineId);
+	Machine getMachineById(Integer machineId);
 
 	Machine save(Machine machine);
 
 	Machine update(Machine machine);
 
-	Machine delete(Long machineId);
+	Machine delete(Integer machineId);
+
+	boolean dropBalance(Machine machine);
 	
 }
